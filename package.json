@@ -1,0 +1,38 @@
+{
+  "name": "trivia2025-backend",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/main.js"
+  },
+  "author": "scott.glazer@igrafx.com",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@scottglz/trivia2025-shared": "^1.0.3",
+    "axios": "^1.7.9",
+    "better-sse": "^0.14.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-promise-router": "^4.1.1",
+    "gravatar": "^1.8.2",
+    "jsonwebtoken": "^9.0.2",
+    "mailgun.js": "^11.1.0",
+    "nocache": "^4.0.0",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/gravatar": "^1.8.6",
+    "@types/jsonwebtoken": "^9.0.8",
+    "@types/pg": "^8.11.11",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.3"
+  }
+}
