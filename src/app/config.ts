@@ -14,7 +14,8 @@ const pgOptions = {
    user: env('POSTGRES_USER'),
    host: env('POSTGRES_HOST'),
    database: env('POSTGRES_DATABASE'),
-   password: env('POSTGRES_PASSWORD')
+   password: env('POSTGRES_PASSWORD'),
+   port: +env('POSTGRES_PORT', '5432')
 };
 
 export const config = {
