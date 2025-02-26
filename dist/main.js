@@ -28,7 +28,7 @@ const errorHandler = function (err, req, res, next) {
     }
 };
 app.use(errorHandler);
-const server = http.listen(config_1.config.port, function () {
+const server = http.listen(config_1.config.port, '::', function () {
     console.log('Server running on port ' + config_1.config.port);
 });
 server.on('error', console.error);
