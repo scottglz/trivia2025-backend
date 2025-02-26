@@ -73,12 +73,12 @@ router.use(async function(req: RequestPlus, _res) {
    return Promise.resolve('next');
 });
 
-router.post('/auth/logout', async function(req, res) {
+router.post('/api/logout', async function(req, res) {
    res.clearCookie(JWT_COOKIE);
    res.json(true);
 });
 
-router.post('/auth/requestemailsignin', async function(request, response) {
+router.post('/api/requestemailsignin', async function(request, response) {
    const email = request.body.email.trim();
    if (!email) {
       throw new RestError(400, 'Invalid email address');
@@ -100,7 +100,7 @@ router.post('/auth/requestemailsignin', async function(request, response) {
       html: 
 `
 <p>
-<a href="${baseUrl}/auth/magiclink/${token}">Click here</a> to sign into the Trivia Server.
+<a href="${baseUrl}/api/magiclink/${token}">Click here</a> to sign into the Trivia Server.
 This link is only valid for five minutes from when this message was sent.
 </p> 
 `      
@@ -111,7 +111,7 @@ This link is only valid for five minutes from when this message was sent.
 
 
 
-router.get('/auth/magiclink/:token([0-9a-fA-F]+)', async function(request, response) {
+router.get('/api/magiclink/:token([0-9a-fA-F]+)', async function(request, response) {
    const token = request.params.token;
    const tokenRecord = loginTokens.checkToken(token);
    if (tokenRecord) {
@@ -127,7 +127,7 @@ router.get('/auth/magiclink/:token([0-9a-fA-F]+)', async function(request, respo
    response.send('Sorry, your magic link is either expired, already used, or invalid.');
 });
 
-router.get('/auth/slackredirect', async function(request, response) {
+router.get('/api/slackredirect', async function(request, response) {
    const params = request.query;
    if (params.error) {
       throw new Error('Error from Slack: ' + params.error);
@@ -135,7 +135,7 @@ router.get('/auth/slackredirect', async function(request, response) {
 
    const code = params.code as string;
    const baseUrl = params.state;
-   const redirect_uri = baseUrl + '/auth/slackredirect';
+   const redirect_uri = baseUrl + '/api/slackredirect';
 
    if (code) {
       const slackresponse = await axios.get('https://slack.com/api/oauth.access?' +

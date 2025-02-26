@@ -13,7 +13,7 @@ const http = new Server(app);
 app.use(nocache());
 
 app.use(authrouter);
-app.use('/trivia', router);
+app.use('/api', router);
 
 app.use(function (req, res) {
    res.status(404).send({status: 404, message: 'NOT_FOUND'});
