@@ -91,7 +91,6 @@ router.post('/api/requestemailsignin', async function(request, response) {
    }
 
    const token = loginTokens.generateToken(user.userid);
-   const baseUrl = 'https://' + request.get('host');
 
    const data = {
       from: config.mailFrom,
@@ -100,7 +99,7 @@ router.post('/api/requestemailsignin', async function(request, response) {
       html: 
 `
 <p>
-<a href="${baseUrl}/api/magiclink/${token}">Click here</a> to sign into the Trivia Server.
+<a href="${config.baseUrl}/api/magiclink/${token}">Click here</a> to sign into the Trivia Server.
 This link is only valid for five minutes from when this message was sent.
 </p> 
 `      

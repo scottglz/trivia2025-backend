@@ -21,6 +21,7 @@ const pgOptions = {
 export const config = {
    production: true,
    pgOptions: pgOptions,
+   baseUrl: env('BASE_URL'),
    storage: new CachingStorage(new PgStorage(pgOptions)),
    port: +env('PORT', '3333'),
    mailgun: {

@@ -62,6 +62,10 @@ interface SessionEntry {
 
 let allSessions: SessionEntry[] = [];
 
+router.get('/health', function(_request, response) {
+   response.json({status: 'ok'});
+});
+
 router.get('/sse', async (request: RequestFor<void>, response) => {
    const session = await createSession(request, response);
    const user = request.user;
