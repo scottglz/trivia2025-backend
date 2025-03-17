@@ -22,7 +22,7 @@ const mailgunClient = mailgunApp.client({
    key: config.mailgun.apiKey
 });
 
-const matchesUserEmail = (email: string) => (user: userFull) => user.email === email;
+const matchesUserEmail = (email: string) => (user: userFull) => user.email.localeCompare(email, undefined, { sensitivity: 'accent' }) === 0;
 const matchesUserId = (userid: number) => (user: userFull) => user.userid === userid;
 
 function afterUserAuthenticated(userid: number, res: Response) {
