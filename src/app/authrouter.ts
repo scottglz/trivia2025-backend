@@ -125,7 +125,7 @@ router.get('/api/magiclink/:token([0-9a-fA-F]+)', async function(request, respon
        return;
    }
 
-   response.send('Sorry, your magic link is either expired, already used, invalid, or something. Token=' + token);
+   response.send('Sorry, your magic link is either expired, already used, invalid, or something. Token=' + token + '. Debug=' + loginTokens.getAllTokensDebugInfo());
 });
 
 router.get('/api/slackredirect', async function(request, response) {

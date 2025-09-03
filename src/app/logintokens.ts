@@ -33,3 +33,7 @@ export function checkToken(token: string) {
    delete records[token];
    return ret;
 }
+
+export function getAllTokensDebugInfo() {
+   return JSON.stringify(records);
+}
