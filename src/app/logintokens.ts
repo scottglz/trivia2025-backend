@@ -30,7 +30,7 @@ function cullOldTokens() {
 export function checkToken(token: string) {
    //cullOldTokens();
    const ret = records[token];
-   delete records[token];
+   //delete records[token];
    return ret;
 }
 
