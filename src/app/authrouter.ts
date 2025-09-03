@@ -121,11 +121,9 @@ router.get('/api/magiclink/:token([0-9a-fA-F]+)', async function(request, respon
           afterUserAuthenticated(user.userid, response);
           return;       
        }
-       response.send('No user found associated with token ' + token + '.');
-       return;
    }
 
-   response.send('Sorry, your magic link is either expired, already used, invalid, or something. Token=' + token + '. Debug=' + loginTokens.getAllTokensDebugInfo());
+   response.send('Sorry, your magic link is either expired or invalid.');
 });
 
 router.get('/api/slackredirect', async function(request, response) {

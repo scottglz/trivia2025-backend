@@ -28,12 +28,6 @@ function cullOldTokens() {
 }
 
 export function checkToken(token: string) {
-   //cullOldTokens();
-   const ret = records[token];
-   //delete records[token];
-   return ret;
-}
-
-export function getAllTokensDebugInfo() {
-   return JSON.stringify(records);
+   cullOldTokens();
+   return records[token];
 }
