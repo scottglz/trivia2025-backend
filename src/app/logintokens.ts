@@ -28,7 +28,7 @@ function cullOldTokens() {
 }
 
 export function checkToken(token: string) {
-   cullOldTokens();
+   //cullOldTokens();
    const ret = records[token];
    delete records[token];
    return ret;
